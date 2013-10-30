@@ -1,0 +1,30 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+<article class="post {{post_class}}">
+
+	{{! Everything inside the #post tags pulls data from the post }}
+    {{#post}}
+
+	<h2 class="entry-title">
+		<a href="{{url}}" class="no-link" title="Permalink to{{{title}}}" rel="bookmark">{{{title}}}</a>
+	</h2>
+	<div class="entry-content">
+		{{content}}
+	</div>
+
+	<footer class="post-footer">
+
+        {{#if author}}
+            <section class="author">
+                <h4>{{author.name}}</h4>
+                <p>{{author.bio}}</p>
+            </section>
+        {{/if}}
+
+    </footer>
+
+	{{/post}}
+</article>
